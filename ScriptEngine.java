@@ -76,8 +76,8 @@ public class ScriptEngine {
 			result = "Script executed:\n["+String.valueOf(index)+"]:Runned custom functions:" + Arrays.toString(toSArray(rf));
 		}
 
-		if (!code.contains("runwallhack()") && !code.contains("runspeedhack()") && !code.contains("runesp()")
-				&& !code.contains("runflyhack()") && rf.size() == 0) {
+		if (!code.contains("runfun1()") && !code.contains("runfun2()") && !code.contains("runfun3()")
+				&& !code.contains("runfun4()") && rf.size() == 0) {
 			result = "Script executed: null";
 		}
 
