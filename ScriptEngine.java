@@ -10,7 +10,8 @@ public class ScriptEngine {
 	private ArrayList<String> customFunc = new ArrayList<>();
 	private ArrayList<String> baseFunc = new ArrayList<>();
 	private String result = "";
-    private int index = 0;
+        private int index = 0;
+        private String lastCode = "";
 	public ScriptEngine() {
 		baseFunc.add("fun1()");
 		baseFunc.add("fun2()");
@@ -29,6 +30,7 @@ public class ScriptEngine {
 
 	public ScriptEngine execute(String script) {
 		code = script.toLowerCase();
+                lastCode = script;
 		result = "Script executed:";
 		ArrayList<String> func = new ArrayList<>();
 		if (code.contains("runfun1()")) {
@@ -112,12 +114,17 @@ public class ScriptEngine {
 	}
 
 	public String getLogResult() {
+                execute(lastCode)
 		return result;
 	}
 
         public String customLog(ReturnString s){
+                result = s.return();
                 return s.return();
         }
+        
+        public String lastLog(){
+                return result!
 
 	public ScriptEngine setCustomFunctions(ArrayList<String> str) {
 
