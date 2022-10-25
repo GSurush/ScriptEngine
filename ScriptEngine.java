@@ -10,9 +10,9 @@ public class ScriptEngine {
 	private ArrayList<String> customFunc = new ArrayList<>();
 	private ArrayList<String> baseFunc = new ArrayList<>();
 	private String result = "";
-    private int index = 0;
-    private String lastCode = "";
-	
+	private int index = 0;
+	private String lastCode = "";
+
 	public ScriptEngine() {
 		baseFunc.add("fun1()");
 		baseFunc.add("fun2()");
@@ -31,12 +31,12 @@ public class ScriptEngine {
 
 	public ScriptEngine execute(String script) {
 		code = script.toLowerCase();
-                lastCode = script;
+		lastCode = script;
 		result = "Script executed:";
 		ArrayList<String> func = new ArrayList<>();
 		if (code.contains("runfun1()")) {
 			index++;
-			result = result + "\n" + "["+String.valueOf(index)+"]: Runed function: Fun1()";
+			result = result + "\n" + "[" + String.valueOf(index) + "]: Runed function: Fun1()";
 			if (orf != null) {
 				func.add("Fun1()");
 				orf.onRunBaseFunction(toSArray(func));
@@ -44,7 +44,7 @@ public class ScriptEngine {
 		}
 		if (code.contains("runfun2()")) {
 			index++;
-			result = result + "\n" + "["+String.valueOf(index)+"]: Runed function: Fun2()";
+			result = result + "\n" + "[" + String.valueOf(index) + "]: Runed function: Fun2()";
 			if (orf != null) {
 				func.add("Fun2()");
 				orf.onRunBaseFunction(toSArray(func));
@@ -52,7 +52,7 @@ public class ScriptEngine {
 		}
 		if (code.contains("runfun3()")) {
 			index++;
-			result = result + "\n" + "["+String.valueOf(index)+"]: Runed function: Fun3()";
+			result = result + "\n" + "[" + String.valueOf(index) + "]: Runed function: Fun3()";
 			if (orf != null) {
 				func.add("Fun3()");
 				orf.onRunBaseFunction(toSArray(func));
@@ -60,7 +60,7 @@ public class ScriptEngine {
 		}
 		if (code.contains("runfun4()")) {
 			index++;
-			result = result + "\n" + "["+String.valueOf(index)+"]: Runed function: Fun4()";
+			result = result + "\n" + "[" + String.valueOf(index) + "]: Runed function: Fun4()";
 			if (orf != null) {
 				func.add("Fun4()");
 				orf.onRunBaseFunction(toSArray(func));
@@ -76,7 +76,8 @@ public class ScriptEngine {
 		if (orf != null && rf.size() > 0) {
 			orf.onRunCustomFunction(toSArray(rf));
 			index++;
-			result = "Script executed:\n["+String.valueOf(index)+"]:Runned custom functions:" + Arrays.toString(toSArray(rf));
+			result = "Script executed:\n[" + String.valueOf(index) + "]:Runned custom functions:"
+					+ Arrays.toString(toSArray(rf));
 		}
 
 		if (!code.contains("runfun1()") && !code.contains("runfun2()") && !code.contains("runfun3()")
@@ -92,7 +93,7 @@ public class ScriptEngine {
 			this.orf.onRunCustomFunction(new String[] { name });
 		}
 		index++;
-		result = "Script executed:\n ["+String.valueOf(index)+"]:Called custom function:"+name;
+		result = "Script executed:\n [" + String.valueOf(index) + "]:Called custom function:" + name;
 		return this;
 	}
 
@@ -101,8 +102,8 @@ public class ScriptEngine {
 			this.orf.onRunCustomFunction(names);
 		}
 		index++;
-		result = "Script executed:\n ["+String.valueOf(index)+"]:Called custom functions:"+Arrays.toString(names);
-		
+		result = "Script executed:\n [" + String.valueOf(index) + "]:Called custom functions:" + Arrays.toString(names);
+
 		return this;
 	}
 
@@ -118,27 +119,29 @@ public class ScriptEngine {
 		return result;
 	}
 
-        public String customLog(ReturnString s){
-                result = s.Return();
-                return s.Return();
-        }
-        
-        public String lastLog(){
-                return result;
-	    }
-    public String lastCode(){
+	public String customLog(ReturnString s) {
+		result = s.Return();
+		return s.Return();
+	}
+
+	public String lastLog() {
+		return result;
+	}
+
+	public String lastCode() {
 		return lastCode;
 	}
+
 	public ScriptEngine setCustomFunctions(ArrayList<String> str) {
 
 		customFunc = str;
 
 		return this;
 	}
-	
 
 	public interface onRunFunction {
-        public void onRunBaseFunction(String[] names);
+		public void onRunBaseFunction(String[] names);
+
 		public void onRunCustomFunction(String[] names);
 	}
 }
