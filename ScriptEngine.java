@@ -119,12 +119,13 @@ public class ScriptEngine {
 	}
 
         public String customLog(ReturnString s){
-                result = s.return();
-                return s.return();
+                result = s.Return();
+                return s.Return();
         }
         
         public String lastLog(){
-                return result!
+                return result;
+        }
 
 	public ScriptEngine setCustomFunctions(ArrayList<String> str) {
 
