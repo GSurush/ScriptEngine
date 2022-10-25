@@ -1,4 +1,4 @@
-package com.surush.cw;
+package SurushLibs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,8 +10,9 @@ public class ScriptEngine {
 	private ArrayList<String> customFunc = new ArrayList<>();
 	private ArrayList<String> baseFunc = new ArrayList<>();
 	private String result = "";
-        private int index = 0;
-        private String lastCode = "";
+    private int index = 0;
+    private String lastCode = "";
+	
 	public ScriptEngine() {
 		baseFunc.add("fun1()");
 		baseFunc.add("fun2()");
@@ -114,7 +115,6 @@ public class ScriptEngine {
 	}
 
 	public String getLogResult() {
-                execute(lastCode)
 		return result;
 	}
 
@@ -125,14 +125,17 @@ public class ScriptEngine {
         
         public String lastLog(){
                 return result;
-        }
-
+	    }
+    public String lastCode(){
+		return lastCode;
+	}
 	public ScriptEngine setCustomFunctions(ArrayList<String> str) {
 
 		customFunc = str;
 
 		return this;
 	}
+	
 
 	public interface onRunFunction {
         public void onRunBaseFunction(String[] names);
