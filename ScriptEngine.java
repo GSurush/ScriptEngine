@@ -115,6 +115,10 @@ public class ScriptEngine {
 		return result;
 	}
 
+        public String customLog(ReturnString s){
+                return s.return();
+        }
+
 	public ScriptEngine setCustomFunctions(ArrayList<String> str) {
 
 		customFunc = str;
