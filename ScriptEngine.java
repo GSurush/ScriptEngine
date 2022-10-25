@@ -1,5 +1,3 @@
-package SurushLibs;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,7 +9,6 @@ public class ScriptEngine {
 	private ArrayList<String> baseFunc = new ArrayList<>();
 	private String result = "";
 	private int index = 0;
-	private String lastCode = "";
 
 	public ScriptEngine() {
 		baseFunc.add("fun1()");
@@ -21,7 +18,7 @@ public class ScriptEngine {
 
 	}
 
-	public String getLastExecutionScript() {
+	public String lastCode() {
 		return code;
 	}
 
@@ -31,7 +28,6 @@ public class ScriptEngine {
 
 	public ScriptEngine execute(String script) {
 		code = script.toLowerCase();
-		lastCode = script;
 		result = "Script executed:";
 		ArrayList<String> func = new ArrayList<>();
 		if (code.contains("runfun1()")) {
@@ -126,10 +122,6 @@ public class ScriptEngine {
 
 	public String lastLog() {
 		return result;
-	}
-
-	public String lastCode() {
-		return lastCode;
 	}
 
 	public ScriptEngine setCustomFunctions(ArrayList<String> str) {
